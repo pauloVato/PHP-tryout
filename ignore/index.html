@@ -1,0 +1,73 @@
+<!-- Caso a página fosse .php, aqui em cima viria o require_once() da pagina que contem o banco de dados
+	manter o javascript e o css em uma pasta a parte, denominadas _css e _javascript
+	carregar os arquivos .css e .js dessas pastas
+	mantive o javascript nessa pagina so pra tu ver funcionando
+	explore os logs, vai printando os bagulhos com echo no php e console.log no js (ir debuggando)
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Página teste</title>
+		<!-- Adiciona o bootstrap na pagina, sem precisar baixar. Pesquise por bootstrap cdn, entre no link e pegue essa referencia -->
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	</head>
+	<body>
+		<div class="container">
+			<table class="table table-striped table-bordered table-hover">
+				<thead class="thead">
+					<tr>
+						<td>ID</td>
+						<td>Nome</td>
+						<td>CPF</td>
+						<td>Idade</td>
+						<td>Sexo</td>
+						<td>Remover?</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id="1">
+						<td>1</td>
+						<td>flavio</td>
+						<td>321654</td>
+						<td>19</td>
+						<td>M</td>
+						<td id="coluna1" onclick="remover(this.id)">Remover</td>
+					</tr>
+					<tr id="2">
+						<td>2</td>
+						<td>tiago</td>
+						<td>123456</td>
+						<td>17</td>
+						<td>M</td>
+						<td id="coluna2" onclick="remover(this.id)">Remover</td>
+					</tr>
+					<tr id="3">
+						<td>3</td>
+						<td>paulo</td>
+						<td>456123</td>
+						<td>18</td>
+						<td>F</td>
+						<td id="coluna3" onclick="remover(this.id)">Remover</td>
+					</tr>
+					<tr id="4">
+						<td>4</td>
+						<td>pedro</td>
+						<td>654321</td>
+						<td>18</td>
+						<td>F</td>
+						<td id="coluna4" onclick="remover(this.id)">Remover</td>	<!-- Ao clicar, envia o id desse objeto -->
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+	<script>
+		function remover(id){
+			id = id.replace("coluna", "");				// Tira o "coluna" do id do botao clicado, mantendo somente o numero
+			let elemento = document.getElementById(id);	// Busca o elemento pai (a tr, q contem toda a linha)
+			elemento.parentNode.removeChild(elemento);  // Remove a linha inteira somente do DOM
+			
+}
+	</script>
+</html>

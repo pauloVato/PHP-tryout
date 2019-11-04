@@ -1,0 +1,6 @@
+function remover(id){
+			id = id.replace("coluna", "");				// Tira o "coluna" do id do botao clicado, mantendo somente o numero
+			let elemento = document.getElementById(id);	// Busca o elemento pai (a tr, q contem toda a linha)
+			elemento.parentNode.removeChild(elemento);  // Remove a linha inteira somente do DOM
+			
+}
